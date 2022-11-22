@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>com.simple.plugin-orm</id>
+    <name>Code Generate ORM</name>
+    <vendor email="1449697757@qq.com">wcx</vendor>
+
+    <description><![CDATA[
+      <br/>English：ORM generation framework, supports options such as Controller, Service, Swagger, etc.;
+      supports simultaneous generation of multiple tables;
+      <br/>Chinese：ORM生成框架，支持Controller、Service、Swagger等选配；支持多表同时生成；
+      <br/>github：<a href="https://gitee.com/yysimple/idea-plugins/tree/master/generator-mybatis-or-plus">https://gitee.com/yysimple/idea-plugins/tree/master/generator-mybatis-or-plus</a>
+      ]]>
+    </description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <!-- please see https://plugins.jetbrains.com/plugin/18891-code-generate-orm/versions/stable/165866#verification-results -->
+    <idea-version since-build="193.5662"/>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <projectService serviceImplementation="com.simple.idea.plugin.mybatis.infrastructure.data.DataSetting"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="CodeGenerateAction" class="com.simple.idea.plugin.mybatis.action.CodeGenerateAction"
+                text="ORMCodeGenerate" description="Code Generate ORM" icon="/icons/logo.png">
+            <!-- 这里是我门触发操作的位置，这里是光标选中选中，然后右键点击，就能触发 -->
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+
+    </actions>
+</idea-plugin>

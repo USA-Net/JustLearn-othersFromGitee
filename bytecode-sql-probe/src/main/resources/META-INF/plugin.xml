@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>com.simple.bytecode-sql-probe</id>
+    <name>SQL Probe</name>
+    <vendor email="1449697757@qq.com">wcx</vendor>
+
+    <description>自己开发的SQL 探针的插件！！！！！！！！！！！！！！！！！！！！！！！！！！</description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <java.programPatcher implementation="com.simple.idea.plugin.probe.SqlProbeRun"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
