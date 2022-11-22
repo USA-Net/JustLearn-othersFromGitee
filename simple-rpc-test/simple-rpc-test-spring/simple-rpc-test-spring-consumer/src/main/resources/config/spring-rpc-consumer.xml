@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rpc="http://rpc.simple.com/schema/rpc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	  http://rpc.simple.com/schema/rpc http://rpc.simple.com/schema/rpc/rpc.xsd">
+
+<!--                address="redis://192.168.31.100:6379"-->
+    <!-- 注册中心 -->
+    <rpc:server id="consumer"
+                address="redis://127.0.0.1:6379"
+                password="123456"/>
+
+<!--    <rpc:server id="consumer"-->
+<!--                address="mysql://127.0.0.1:3306"-->
+<!--                username="root"-->
+<!--                password="970412@wcx.com"-->
+<!--                database="test"-->
+<!--                table="register_center"-->
+<!--    />-->
+
+<!--    <rpc:server id="consumer"-->
+<!--                address="local://127.0.0.1:1111"-->
+<!--    />-->
+
+    <rpc:provider id="helloConsumerService"
+                  beanName="springConsumerService"
+                  interfaceName="com.simple.rpc.test.common.spring.SpringConsumerService"
+                  alias="consumerProviderRpc"/>
+
+    <rpc:consumer id="helloService"
+                  interfaceName="com.simple.rpc.test.common.spring.SpringHelloService"
+                  beanName="springHelloService"
+                  alias="providerRpc"
+                  timeout="60"/>
+
+
+</beans>

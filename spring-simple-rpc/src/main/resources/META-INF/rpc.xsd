@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://rpc.simple.com/schema/rpc"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:beans="http://www.springframework.org/schema/beans"
+            targetNamespace="http://rpc.simple.com/schema/rpc"
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xsd:import namespace="http://www.springframework.org/schema/beans"/>
+
+    <!-- com.simple.rpc.core.spring.xml.config.ServerConfig -->
+    <xsd:element name="server">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute name="address" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 注册中心地址，协议：redis://127.0.0.1:6379等； ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="username" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 仅适用于连接需要用户名的协议 ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="password" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 仅适用于连接需要密码的协议 ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="database" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 仅适用于连接需要数据库的协议 ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="table" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 仅适用于连接需要表结构的协议 ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="timeout" type="xsd:long">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 全局超时时间 ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="tryNum" type="xsd:integer">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 全局重试次数  ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- com.simple.rpc.core.spring.xml.config.ConsumerConfig -->
+    <xsd:element name="consumer">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute name="interfaceName" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 接口名称 ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="beanName" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ bean名称 ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="alias" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 服务别名分组信息  ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="tryNum" type="xsd:integer">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 消费端重试次数  ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="timeout" type="xsd:long">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 消费者请求超时时间  ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- com.simple.rpc.core.spring.xml.config.ProviderConfig -->
+    <xsd:element name="provider">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute name="interfaceName" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 接口名称 ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="beanName" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 接口实现类  ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                    <xsd:attribute name="alias" type="xsd:string">
+                        <xsd:annotation>
+                            <xsd:documentation><![CDATA[ 服务别名分组信息  ]]></xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

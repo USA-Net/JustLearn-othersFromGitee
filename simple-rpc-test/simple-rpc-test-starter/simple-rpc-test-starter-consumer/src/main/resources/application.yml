@@ -1,0 +1,22 @@
+server:
+  port: 8882
+spring:
+  application:
+    name: simple-rpc-test-comsumer
+simple:
+  rpc:
+    register:
+      address: redis://127.0.0.1:6379
+      #address: redis://192.168.206.100:6379
+      password: 123456
+      #address: mysql://127.0.0.1:3306
+      #password: 970412@wcx.com
+      #username: root
+      #database: test
+      #table: register_center
+    base:
+      load-balance-rule: random-weight
+      serializer: serializer
+      weights: 10
+      port: 4321
+      beat-interval-time: 5

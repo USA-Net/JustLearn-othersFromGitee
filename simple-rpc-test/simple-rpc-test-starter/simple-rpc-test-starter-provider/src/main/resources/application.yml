@@ -1,0 +1,15 @@
+server:
+  port: 8881
+spring:
+  application:
+    name: simple-rpc-test-provider
+simple:
+  rpc:
+    register:
+      address: redis://127.0.0.1:6379
+      #address: redis://192.168.206.100:6379
+      password: 123456
+    base:
+      load-balance-rule: random-weight
+      serializer: serializer
+      weights: 20
