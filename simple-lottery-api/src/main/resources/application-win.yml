@@ -1,0 +1,19 @@
+server:
+  port: 6543
+
+spring:
+  application:
+    name: simple-lottery-api
+
+simple:
+  rpc:
+    register:
+      address: redis://192.168.206.100:6379
+      password: 123456
+
+wx:
+  config:
+    originalid: gh_95b2229b90fb
+    appid: wx470537fb2f5bf897
+    token: yysimple
+

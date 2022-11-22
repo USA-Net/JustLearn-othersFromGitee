@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.5.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.simple.lottery</groupId>
+    <artifactId>simple-lottery</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>simple-lottery-app</module>
+        <module>simple-lottery-common</module>
+        <module>simple-lottery-rpc</module>
+        <module>simple-lottery-domain</module>
+        <module>simple-lottery-infrastructure</module>
+        <module>simple-lottery-services</module>
+        <module>simple-lottery-test</module>
+    </modules>
+
+    <properties>
+        <!-- Base -->
+        <jdk.version>1.8</jdk.version>
+        <sourceEncoding>UTF-8</sourceEncoding>
+        <spring-boot.version>2.6.0</spring-boot.version>
+        <mybatis-spring-boot.version>2.1.4</mybatis-spring-boot.version>
+        <mysql.version>8.0.20</mysql.version>
+        <fastjson.version>1.2.78</fastjson.version>
+        <apache-commons.version>3.8</apache-commons.version>
+        <junit.version>4.12</junit.version>
+        <simple-rpc.version>1.0.0</simple-rpc.version>
+        <hutools.version>5.7.4</hutools.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
+        <xxl-job.version>2.3.0</xxl-job.version>
+        <dbrouter.version>1.0.0</dbrouter.version>
+        <pagination.version>1.0.0</pagination.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-autoconfigure</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
+                <optional>true</optional>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache-commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!--  自研rpc组件  -->
+            <dependency>
+                <groupId>com.simple.rpc.springboot</groupId>
+                <artifactId>simple-rpc-boot-starter</artifactId>
+                <version>${simple-rpc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutools.version}</version>
+            </dependency>
+
+            <!-- MapStruct begin -->
+            <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <!-- MapStruct end -->
+
+            <!-- xxl-job-core https://github.com/xuxueli/xxl-job/-->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
+            </dependency>
+
+            <!-- 自研分库分表组件 -->
+            <dependency>
+                <groupId>com.simple.dbrouter</groupId>
+                <artifactId>dbrouter-spring-boot-starter</artifactId>
+                <version>${dbrouter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.simple.pagination</groupId>
+                <artifactId>pagination-spring-boot-starter</artifactId>
+                <version>${pagination.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
